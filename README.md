@@ -18,9 +18,11 @@ Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern
 |---|---|---|
 | **Install** | `cargo install fast-bash` | `brew tap MerzoukeMansouri/homebrew`<br>`brew install MerzoukeMansouri/homebrew/fast-bash` |
 | **Dependencies** | `brew install ripgrep fd` | included |
-| **`~/.claude/settings.json`** | `"command": "/path/to/target/release/fast-bash"` | `"command": "fast-bash"` |
+| **Update** | `cargo install fast-bash` | `brew upgrade MerzoukeMansouri/homebrew/fast-bash` |
 
-Full `settings.json` snippet:
+### `~/.claude/settings.json`
+
+**Homebrew / crates.io:**
 
 ```json
 {
@@ -28,12 +30,22 @@ Full `settings.json` snippet:
     "PreToolUse": [
       {
         "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "fast-bash"
-          }
-        ]
+        "hooks": [{ "type": "command", "command": "fast-bash" }]
+      }
+    ]
+  }
+}
+```
+
+**Manual build:**
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [{ "type": "command", "command": "/path/to/pre-tool-hook/target/release/fast-bash" }]
       }
     ]
   }
