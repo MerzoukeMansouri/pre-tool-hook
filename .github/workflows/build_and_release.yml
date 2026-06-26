@@ -1,0 +1,24 @@
+name: Build & Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    uses: MerzoukeMansouri/rust-github-reusable/.github/workflows/ci.yml@main
+
+  release:
+    needs: ci
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    uses: MerzoukeMansouri/rust-github-reusable/.github/workflows/release.yml@main
+    with:
+      binary_name: fast-bash
+      repo: MerzoukeMansouri/pre-tool-hook
+      formula_class: FastBash
+      formula_desc: "Claude Code PreToolUse hook: rewrites grep→rg, find→fd, blocks dangerous shell commands"
+    secrets:
+      TAP_GITHUB_TOKEN: ${{ secrets.TAP_GITHUB_TOKEN }}
