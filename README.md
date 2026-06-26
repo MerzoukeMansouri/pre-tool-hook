@@ -22,7 +22,13 @@ Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern
 
 ### `~/.claude/settings.json`
 
-**Homebrew / crates.io:**
+<table>
+<tr>
+<th>Homebrew / crates.io</th>
+<th>Manual build</th>
+</tr>
+<tr>
+<td>
 
 ```json
 {
@@ -37,7 +43,8 @@ Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern
 }
 ```
 
-**Manual build:**
+</td>
+<td>
 
 ```json
 {
@@ -51,6 +58,10 @@ Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern
   }
 }
 ```
+
+</td>
+</tr>
+</table>
 
 ## License
 
