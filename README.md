@@ -17,18 +17,11 @@ Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern
 <table>
 <tr>
 <th></th>
-<th>Build Manually</th>
 <th>Homebrew</th>
+<th>Build Manually</th>
 </tr>
 <tr>
 <td><b>Install</b></td>
-<td>
-
-```bash
-cargo install fast-bash
-```
-
-</td>
 <td>
 
 ```bash
@@ -37,20 +30,6 @@ brew install MerzoukeMansouri/homebrew/fast-bash
 ```
 
 </td>
-</tr>
-<tr>
-<td><b>Dependencies</b></td>
-<td>
-
-```bash
-brew install ripgrep fd
-```
-
-</td>
-<td>included</td>
-</tr>
-<tr>
-<td><b>Update</b></td>
 <td>
 
 ```bash
@@ -58,10 +37,31 @@ cargo install fast-bash
 ```
 
 </td>
+</tr>
+<tr>
+<td><b>Dependencies</b></td>
+<td>included</td>
+<td>
+
+```bash
+brew install ripgrep fd
+```
+
+</td>
+</tr>
+<tr>
+<td><b>Update</b></td>
 <td>
 
 ```bash
 brew upgrade MerzoukeMansouri/homebrew/fast-bash
+```
+
+</td>
+<td>
+
+```bash
+cargo install fast-bash
 ```
 
 </td>
@@ -72,8 +72,8 @@ brew upgrade MerzoukeMansouri/homebrew/fast-bash
 
 <table>
 <tr>
-<th>Homebrew / crates.io</th>
-<th>Manual build</th>
+<th>Homebrew</th>
+<th>Build Manually</th>
 </tr>
 <tr>
 <td>
