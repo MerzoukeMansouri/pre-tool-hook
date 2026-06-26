@@ -18,7 +18,11 @@ Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern
 cargo install fast-bash
 ```
 
-Requires [ripgrep](https://github.com/BurntSushi/ripgrep) (`rg`) and [fd](https://github.com/sharkdp/fd) to be in `$PATH`.
+Requires [ripgrep](https://github.com/BurntSushi/ripgrep) and [fd](https://github.com/sharkdp/fd):
+
+```bash
+brew install ripgrep fd
+```
 
 ## Wire up
 
