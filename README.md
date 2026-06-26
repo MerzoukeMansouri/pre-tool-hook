@@ -39,17 +39,6 @@ cargo install fast-bash
 </td>
 </tr>
 <tr>
-<td><b>Dependencies</b></td>
-<td>included</td>
-<td>
-
-```bash
-brew install ripgrep fd
-```
-
-</td>
-</tr>
-<tr>
 <td><b>Update</b></td>
 <td>
 
