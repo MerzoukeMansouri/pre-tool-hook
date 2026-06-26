@@ -46,6 +46,8 @@ brew upgrade MerzoukeMansouri/homebrew/fast-bash
 
 Add to `~/.claude/settings.json`:
 
+**Homebrew / crates.io** (binary in `$PATH`):
+
 ```json
 {
   "hooks": {
@@ -56,6 +58,26 @@ Add to `~/.claude/settings.json`:
           {
             "type": "command",
             "command": "fast-bash"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**Manual build** (full path to binary):
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/path/to/pre-tool-hook/target/release/fast-bash"
           }
         ]
       }
