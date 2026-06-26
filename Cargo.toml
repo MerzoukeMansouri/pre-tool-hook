@@ -1,0 +1,16 @@
+[package]
+name = "fast-bash"
+version = "0.1.0"
+edition = "2024"
+description = "Claude Code PreToolUse hook: rewrites grep→rg, find→fd, blocks dangerous shell commands"
+license = "MIT"
+repository = "https://github.com/M14I/pre-tool-hook"
+keywords = ["claude-code", "hook", "ripgrep", "fd", "shell"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+serde_json = "1"
+
+[profile.release]
+opt-level = "z"
+strip = true
