@@ -109,7 +109,7 @@ fn rewrite_grep(cmd: &str) -> String {
                 result.push_str(&s[..pos]);
                 result.push_str("-g ");
                 s = &s[pos + "--include=".len()..];
-                if s.starts_with(|c| c == '\'' || c == '"') {
+                if s.starts_with(['\'', '"']) {
                     let q = s.chars().next().unwrap();
                     s = &s[1..];
                     let end = s.find(q).unwrap_or(s.len());
