@@ -1,14 +1,19 @@
 # fast-bash
 
-Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern alternatives and blocks dangerous operations.
+Claude Code `PreToolUse` hook with three behaviors:
 
-## What it does
+1. **`grep -r` → `rg`** with auto-excludes (`node_modules`, `dist`, `target`, …) — 10–100× faster on real repos. Incompatible flags (`-P`, `-G`) pass through untouched.
+2. **`find` hint** — logs `[fast-bash] hint: consider using fd` to stderr. No rewrite, no breakage.
+3. **Safety blocks** — hard-blocks `rm -rf /`, `rm -rf .`, `rm -rf /etc`, … and `git push --force` (allows `--force-with-lease`).
 
-| Before | After |
-|--------|-------|
-| `grep -rn "foo" .` | `rg -n "foo" .` + auto-exclude `node_modules`, `dist`, `target`, … |
-| `find . -name "*.ts"` | `fd -e ts .` + auto-exclude noise dirs |
-| `grep -rn --include="*.rs"` | `rg -g "*.rs"` |
+## Examples
+
+| Command | Result |
+|---------|--------|
+| `grep -rn "foo" .` | → `rg -n "foo" .` + auto-excludes |
+| `grep -rn --include="*.rs" foo .` | → `rg -g "*.rs" foo .` |
+| `grep -rP 'foo(?=bar)' .` | pass-through (PCRE flag) |
+| `find . -name "*.ts"` | hint to stderr, runs as-is |
 | `rm -rf /` | **blocked** |
 | `git push --force` | **blocked** (use `--force-with-lease`) |
 
