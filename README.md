@@ -14,14 +14,32 @@ Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern
 
 ## Install
 
+### Homebrew (recommended)
+
+```bash
+brew tap MerzoukeMansouri/homebrew
+brew install MerzoukeMansouri/homebrew/fast-bash
+```
+
+### From crates.io
+
 ```bash
 cargo install fast-bash
 ```
+
+### Dependencies
 
 Requires [ripgrep](https://github.com/BurntSushi/ripgrep) and [fd](https://github.com/sharkdp/fd):
 
 ```bash
 brew install ripgrep fd
+```
+
+### Update
+
+```bash
+brew update
+brew upgrade MerzoukeMansouri/homebrew/fast-bash
 ```
 
 ## Wire up
