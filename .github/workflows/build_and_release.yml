@@ -6,7 +6,10 @@ on:
 
 jobs:
   ci:
+    permissions:
+      contents: read
     uses: MerzoukeMansouri/rust-github-reusable/.github/workflows/ci.yml@main
+    secrets: inherit
 
   release:
     needs: ci
