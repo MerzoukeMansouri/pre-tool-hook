@@ -1,6 +1,6 @@
 [package]
 name = "fast-bash"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2024"
 description = "Claude Code PreToolUse hook: rewrites grep→rg, find→fd, blocks dangerous shell commands"
 license = "MIT"
