@@ -12,41 +12,15 @@ Claude Code `PreToolUse` hook that rewrites slow shell commands to faster modern
 | `rm -rf /` | **blocked** |
 | `git push --force` | **blocked** (use `--force-with-lease`) |
 
-## Install
+## Setup
 
-### Homebrew (recommended)
+| | Build Manually | Homebrew |
+|---|---|---|
+| **Install** | `cargo install fast-bash` | `brew tap MerzoukeMansouri/homebrew`<br>`brew install MerzoukeMansouri/homebrew/fast-bash` |
+| **Dependencies** | `brew install ripgrep fd` | included |
+| **`~/.claude/settings.json`** | `"command": "/path/to/target/release/fast-bash"` | `"command": "fast-bash"` |
 
-```bash
-brew tap MerzoukeMansouri/homebrew
-brew install MerzoukeMansouri/homebrew/fast-bash
-```
-
-### From crates.io
-
-```bash
-cargo install fast-bash
-```
-
-### Dependencies
-
-Requires [ripgrep](https://github.com/BurntSushi/ripgrep) and [fd](https://github.com/sharkdp/fd):
-
-```bash
-brew install ripgrep fd
-```
-
-### Update
-
-```bash
-brew update
-brew upgrade MerzoukeMansouri/homebrew/fast-bash
-```
-
-## Wire up
-
-Add to `~/.claude/settings.json`:
-
-**Homebrew / crates.io** (binary in `$PATH`):
+Full `settings.json` snippet:
 
 ```json
 {
@@ -58,26 +32,6 @@ Add to `~/.claude/settings.json`:
           {
             "type": "command",
             "command": "fast-bash"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
-
-**Manual build** (full path to binary):
-
-```json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/path/to/pre-tool-hook/target/release/fast-bash"
           }
         ]
       }
