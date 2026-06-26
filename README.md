@@ -111,6 +111,14 @@ cargo install fast-bash
 </tr>
 </table>
 
+## Install via Claude Code
+
+Paste this prompt into Claude Code:
+
+```
+@https://raw.githubusercontent.com/MerzoukeMansouri/pre-tool-hook/main/doc/install.md install fast-bash hook following the guide
+```
+
 ## License
 
 MIT
